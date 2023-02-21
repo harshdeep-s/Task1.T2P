@@ -1,0 +1,20 @@
+int led = 13;
+int sensor = 2;
+int state = LOW;
+int val = 0;
+
+void setup() {
+  pinMode(led, OUTPUT);
+  pinMode(sensor, INPUT);
+  attachInterrupt(digitalPinToInterrupt(sensor), blink, HIGH);
+}
+
+void loop(){
+  val = digitalRead(sensor);
+}
+
+
+void blink() {
+  state = !state;
+   digitalWrite(led, state);
+}
